@@ -1,31 +1,23 @@
 # Project conventions
 
-<!-- The agent reads this at the start of every session. Keep it short and current.
-     Graded: does it reflect how the team actually works? -->
-
 ## What this repository is
-One paragraph. Link to the current `spec.md`.
+Week 4 terminal course-reference RAG lab. See [intent](intent/ask-the-course.md) and [specification](spec.md).
 
 ## Commands
-```
-# build
-# test
-# run
-# lint
-```
+Not implemented yet. Proposed commands are in spec.md.
 
 ## Conventions
-- Language and style rules the agent must follow.
-- Where tests live and how they are named.
-- Branch and PR naming.
+- Keep approval and evaluation records honest. Never mark a draft approved without Gabriel's approval.
+- Student writes the five evaluation questions and asks at least two questions about the plan.
 
 ## Working rules
-
-For an introductory lab, follow its explicitly assigned stages; the full chain below applies to major projects. Week 1 uses its own minimal repository.
-
-- Write or update `intent/` and `spec.md` before code. Get `plan.md` approved before implementing.
-- One feature per branch and pull request. Never push to `main` directly.
-- Never commit `.env` or `.claude/settings.local.json`.
+- This is the Week 4 introductory lab. Stages assigned: intent, spec, and plan. No branches or pull requests yet. Commit to main.
+- Libraries and build tools are allowed. Name each dependency in spec.md with its reason. Print retrieved chunks and scores for every answer.
+- Documents are in ../ai-integration-course: syllabus.md, assignments/, and weeks/01 through weeks/03. Skip weeks/04. Never copy pages into this repo.
+- Intent is approved. Get the spec reviewed and approved, then the plan questioned and approved, before any code is written.
+- During implementation, stop after each plan step and show its proof before starting the next.
+- Never commit API keys, .env, or .claude/settings.local.json.
 
 ## Common mistakes
-Things the agent got wrong before and must not repeat. Add to this list as they happen.
+- Do not treat similarity scores as probabilities or evidence of factual correctness.
+- Do not claim evaluation results or student corrections that have not occurred.
