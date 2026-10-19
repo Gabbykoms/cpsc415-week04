@@ -22,3 +22,7 @@ venv/
 .gradle/
 bin/
 obj/
+
+# Generated RAG index (rebuild from the neighboring course checkout)
+index.json
+index.json.*
