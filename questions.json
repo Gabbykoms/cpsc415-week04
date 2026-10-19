@@ -1,0 +1,54 @@
+{
+  "provenance": "Suggested by the agent and accepted unchanged by Gabriel in conversation. Not student-authored; the lab asks the student to write the questions.",
+  "questions": [
+    {
+      "id": "deadline",
+      "kind": "single_source",
+      "question": "When is the Week 4 RAG assignment due?",
+      "expected_answer": "Monday, October 19, 2026, at 1:30 PM, on Moodle.",
+      "expected_sources": [
+        "assignments/week04-rag-plan.md"
+      ],
+      "purpose": "Find the exact assignment deadline."
+    },
+    {
+      "id": "portfolio_weight",
+      "kind": "single_source",
+      "question": "What percentage of the course grade is the individual portfolio?",
+      "expected_answer": "25%.",
+      "expected_sources": [
+        "syllabus.md"
+      ],
+      "purpose": "Retrieve the correct grade weight from a table."
+    },
+    {
+      "id": "week03_tag",
+      "kind": "single_source",
+      "question": "What Git tag must I submit for the Week 3 assignment?",
+      "expected_answer": "week03-submitted, along with the repository URL.",
+      "expected_sources": [
+        "assignments/week03-structured-output.md"
+      ],
+      "purpose": "Distinguish Week 3 submission requirements from other weeks."
+    },
+    {
+      "id": "late_day",
+      "kind": "multi_source",
+      "question": "If I have an unused late day and apply it to the Week 4 assignment, when can I submit?",
+      "expected_answer": "Tuesday, October 20, 2026, at 1:30 PM: the October 19, 1:30 PM deadline plus one 24-hour late day. Cite both the deadline and late-day policy.",
+      "expected_sources": [
+        "assignments/week04-rag-plan.md",
+        "syllabus.md"
+      ],
+      "purpose": "Combine evidence from two pages and calculate the extended deadline."
+    },
+    {
+      "id": "favorite_movie",
+      "kind": "unanswerable",
+      "question": "What is Professor Kousen's favorite movie?",
+      "expected_answer": "I can't find that in the course documents.",
+      "expected_sources": [],
+      "purpose": "Refuse to invent a personal preference absent from the indexed documents."
+    }
+  ]
+}
