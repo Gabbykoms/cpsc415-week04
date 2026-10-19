@@ -83,4 +83,4 @@ Observed answer: the bot reported **Week 1 instructor fallback `xiaomi/mimo-v2.5
 API-reported experiment cost: $0.00104642 for one embedding and one chat call. Total lab spend: $0.00748127; remaining approved budget: $0.09251873. No rerun or retrieval adjustment performed.
 
 ## Later steps
-Gabriel's code explanation and final submission preparation remain pending. Student spec correction and student-authored question requirements remain unmet. Do not create the submission tag yet.
+Gabriel explained the ranking line in conversation: “gives a rank of the 5 retrieved chunks with respect to how close they're to the search”. The agent clarified that sorting covers all scored chunks before selecting five, with descending scores and chunk-ID tie breaking. The README records both the student's explanation and the clarification. Final submission preparation remains pending. Student spec correction and student-authored question requirements remain unmet. Do not create the submission tag yet.

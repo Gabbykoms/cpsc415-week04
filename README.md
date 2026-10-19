@@ -80,10 +80,21 @@ The answer cited both `xiaomi/mimo-v2.5` from `weeks/01/setup.md#chunk-2` (score
 
 A proposed improvement is instructor-approved effective-date and supersedes metadata: prefer the newer authoritative selection for current questions, and label the older one historical. This was not implemented. Git edit dates alone can be misleading when edits do not change the policy. See [complete evidence](results/stale-page.json) and [analysis](CHECKS.md).
 
+## One line explained
+
+From `retrieve()` in `asker.py`:
+
+```python
+return sorted(scored, key=lambda chunk: (-chunk['score'], chunk['id']))[:5]
+```
+
+Gabriel's explanation: “gives a rank of the 5 retrieved chunks with respect to how close they're to the search”.
+
+Clarification discussed: the line sorts all scored chunks, then selects the first five. Negating the score makes higher cosine similarities come first; chunk ID breaks equal-score ties consistently. Similarity indicates relevance to the question, not factual correctness or freshness.
+
 ## Outstanding work
 - The $0.10 lab API spending ceiling and credential source are authorized; remaining budget is recorded in `results/budget.json`.
 - Review the recorded evaluation and its citation failure.
-- Gabriel explains one ranking or refusal code line in his own words.
 - Complete documentation and create the submission tag only when ready.
 
 Gabriel accepted the specification and agent-suggested questions unchanged. The lab's requested student spec correction and student-authored question requirements remain unmet.
