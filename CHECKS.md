@@ -62,5 +62,25 @@ The four baseline failures had no retrieved chunks by design. The grounding inst
 ### Spending
 Evaluation: 10 chat calls and 5 question-embedding calls; API-reported cost $0.00441969. Total lab spend so far: $0.00643485. Remaining approved budget: $0.09356515. Details in `results/budget.json`.
 
+## Step 5: Stale-page experiment complete
+
+Question: “Which Xiaomi MiMo model does this course use as the fallback or second model?” Run once with the unchanged index, model, prompt, and top-five retrieval. Exit status 0. Full answer, chunks, scores, usage, and provenance: `results/stale-page.json`; terminal capture: `results/stale-page.txt`.
+
+Observed answer: the bot reported **Week 1 instructor fallback `xiaomi/mimo-v2.5`**, citing `weeks/01/setup.md#chunk-2`, and **Week 3 second model `xiaomi/mimo-v2.6-flash`**, citing `weeks/03/lab.md#chunk-3`. It concluded that the choice depends on the activity. Both cited passages contain the stated model names, and both references were supplied in the prompt.
+
+| Rank | Retrieved chunk | Cosine score | Relevance |
+|---|---|---|---|
+| 1 | syllabus.md#chunk-6 | 0.449939 | General model/fallback policy, not the specific Xiaomi version. |
+| 2 | weeks/01/setup.md#chunk-2 | 0.355960 | Older fallback: xiaomi/mimo-v2.5. |
+| 3 | weeks/03/lab.md#chunk-3 | 0.328682 | Newer second model: xiaomi/mimo-v2.6-flash. |
+| 4 | weeks/02/setup.md#chunk-3 | 0.323927 | Troubleshooting; not the version decision. |
+| 5 | syllabus.md#chunk-5 | 0.318154 | General computing/model access information. |
+
+**Finding:** The older Week 1 chunk ranked above the newer Week 3 chunk. The bot did not simply select the obsolete version; it disclosed both. The stale page still affected the answer by presenting the older version as an activity-specific option instead of clearly identifying the newer course choice. This run therefore demonstrates unresolved source precedence, not a reproduced single-wrong-version failure. The Week 4 lab explains that the model changed September 28 and the older page was not edited; that explanation is outside the indexed weeks/01–03 pages, so the bot was not supplied that correction.
+
+**Proposed mitigation (not implemented):** Attach instructor-approved effective dates and explicit supersedes relationships to model-selection passages. For questions about the current course model, prefer the newer authoritative selection and label older selections historical. For historical Week 1 questions, retain the old answer. Git last-modified dates alone are weaker evidence because unrelated edits do not necessarily change a policy's effective date. Similarity scores alone cannot establish freshness.
+
+API-reported experiment cost: $0.00104642 for one embedding and one chat call. Total lab spend: $0.00748127; remaining approved budget: $0.09251873. No rerun or retrieval adjustment performed.
+
 ## Later steps
-The stale-page experiment and Gabriel's code explanation remain pending. Do not create the submission tag yet.
+Gabriel's code explanation and final submission preparation remain pending. Student spec correction and student-authored question requirements remain unmet. Do not create the submission tag yet.

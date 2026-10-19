@@ -37,8 +37,15 @@
       "requests": 15,
       "reported_cost_usd": "0.00441969",
       "evidence": "eval-01/summary.json"
+    },
+    {
+      "stage": "stale-page experiment",
+      "model": "minimax/minimax-m3",
+      "requests": 2,
+      "reported_cost_usd": "0.00104642",
+      "evidence": "stale-page.json"
     }
   ],
-  "total_reported_cost_usd": "0.00643485",
-  "remaining_budget_usd": "0.09356515"
+  "total_reported_cost_usd": "0.00748127",
+  "remaining_budget_usd": "0.09251873"
 }

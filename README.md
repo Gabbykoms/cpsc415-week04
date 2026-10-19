@@ -44,7 +44,7 @@ Retrieval prints five passages and cosine scores before the answer. Answers must
 
 See `results/asker-proof-*.json` for full records and corresponding `.txt` files for terminal output. These agent-selected checks do not replace Gabriel's five questions. The baseline behavior shows the effect of withholding excerpts under the same grounding instruction; it does not prove the model cannot answer without RAG under another prompt.
 
-Total API-reported spend through the index, asker proof, and evaluation: $0.00643485 of the approved $0.10 ceiling. The CLI does not enforce a provider-side spending cap; `results/budget.json` records this session's spending.
+Total API-reported spend through the index, asker proof, evaluation, and stale-page experiment: $0.00748127 of the approved $0.10 ceiling. The CLI does not enforce a provider-side spending cap; `results/budget.json` records this session's spending.
 
 ## Five-question evaluation
 
@@ -72,10 +72,18 @@ The deadline failure cited `syllabus.md#chunk-1`, which was not supplied, despit
 
 Full evidence: [evaluation records](results/eval-01/), [review](results/eval-01/review.json), and [terminal capture](results/eval-terminal.txt). Raw per-run review fields preserve their initial pending state; `review.json` contains the later source-based assessment. No failed run was replaced or silently rerun.
 
+## Stale-page finding
+
+Asked: “Which Xiaomi MiMo model does this course use as the fallback or second model?”
+
+The answer cited both `xiaomi/mimo-v2.5` from `weeks/01/setup.md#chunk-2` (score 0.355960) and `xiaomi/mimo-v2.6-flash` from `weeks/03/lab.md#chunk-3` (score 0.328682). It described them as choices for different activities. The older page ranked higher, but the bot did not choose only the obsolete version. It surfaced both without resolving which selection supersedes the other.
+
+A proposed improvement is instructor-approved effective-date and supersedes metadata: prefer the newer authoritative selection for current questions, and label the older one historical. This was not implemented. Git edit dates alone can be misleading when edits do not change the policy. See [complete evidence](results/stale-page.json) and [analysis](CHECKS.md).
+
 ## Outstanding work
 - The $0.10 lab API spending ceiling and credential source are authorized; remaining budget is recorded in `results/budget.json`.
 - Review the recorded evaluation and its citation failure.
-- Record the stale-page experiment and explain one code line.
+- Gabriel explains one ranking or refusal code line in his own words.
 - Complete documentation and create the submission tag only when ready.
 
 Gabriel accepted the specification and agent-suggested questions unchanged. The lab's requested student spec correction and student-authored question requirements remain unmet.
