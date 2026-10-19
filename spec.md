@@ -1,6 +1,6 @@
 # Spec: Ask the course
 
-**Status:** Accepted unchanged by Gabriel Koomson on October 19, 2026, in conversation after being asked for changes. Indexer and asker implemented and live proof checks passed; the student-authored five-question evaluation remains pending.
+**Status:** Accepted unchanged by Gabriel Koomson on October 19, 2026, in conversation after being asked for changes. Indexer and asker implemented and live proof checks passed; the five-question evaluation is complete with agent-suggested questions accepted unchanged. The student-authorship requirement remains unmet.
 
 ## Intent
 Implements [approved intent](intent/ask-the-course.md): a general course reference used from the terminal.
@@ -38,7 +38,7 @@ Implements [approved intent](intent/ask-the-course.md): a general course referen
 4. Supported answers cite supplied chunks. Validate citation references against supplied chunks; human review still checks whether cited text actually supports the claims.
 5. Unsupported questions receive the exact refusal. API failures must never masquerade as refusals.
 6. Detect changed, added, or removed corpus files and reject a stale index with a rebuild instruction. This differs from a stale page still present in the current course repository, which remains indexed for the required experiment.
-7. Gabriel writes five questions: three answerable in a single place, one requiring two pages, and one unanswerable. Store each question's purpose, expected answer or refusal, and expected sources in `questions.json` before running evaluation.
+7. The lab requires Gabriel to write five questions (actual set was agent-suggested and accepted unchanged; authorship requirement remains unmet): three answerable in a single place, one requiring two pages, and one unanswerable. Store each question's purpose, expected answer or refusal, and expected sources in `questions.json` before running evaluation.
 8. Run all five questions with retrieval and without retrieval. Capture full output, source chunks, scores, model IDs, usage when returned, configuration, and index provenance. Human review records pass/fail and reasons in `CHECKS.md`; successful HTTP responses alone do not count as passes.
 9. Separately ask which Xiaomi MiMo model is the fallback or second model. Record the answer, cited and misleading chunks, and one proposed way to prefer the current page. Do not invent findings before a run.
 10. README documents setup, environment variables, index rebuilding, asking questions, the five questions and their purposes, both evaluation results and the observed difference, the stale-page finding, and one line Gabriel can explain.

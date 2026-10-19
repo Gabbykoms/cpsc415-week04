@@ -1,0 +1,371 @@
+{
+  "provenance": "Suggested by the agent and accepted unchanged by Gabriel in conversation. Not student-authored; the lab asks the student to write the questions.",
+  "outcomes": [
+    {
+      "mode": "with_retrieval",
+      "id": "deadline",
+      "status": "error",
+      "record": "with_retrieval-deadline.json",
+      "usage": {
+        "embedding": {
+          "prompt_tokens": 11,
+          "total_tokens": 11,
+          "cost": 2.2e-07,
+          "is_byok": false,
+          "cost_details": {
+            "upstream_inference_cost": 2.2e-07,
+            "upstream_inference_prompt_cost": 2.2e-07,
+            "upstream_inference_completions_cost": 0
+          }
+        },
+        "chat": {
+          "prompt_tokens": 2438,
+          "completion_tokens": 499,
+          "total_tokens": 2937,
+          "cost": 0.00103978,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00103978,
+            "upstream_inference_prompt_cost": 0.00056074,
+            "upstream_inference_completions_cost": 0.00047904
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 400,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "mode": "with_retrieval",
+      "id": "portfolio_weight",
+      "status": "ok",
+      "record": "with_retrieval-portfolio_weight.json",
+      "usage": {
+        "embedding": {
+          "prompt_tokens": 11,
+          "total_tokens": 11,
+          "cost": 2.2e-07,
+          "is_byok": false,
+          "cost_details": {
+            "upstream_inference_cost": 2.2e-07,
+            "upstream_inference_prompt_cost": 2.2e-07,
+            "upstream_inference_completions_cost": 0
+          }
+        },
+        "chat": {
+          "prompt_tokens": 2162,
+          "completion_tokens": 148,
+          "total_tokens": 2310,
+          "cost": 0.00063934,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00063934,
+            "upstream_inference_prompt_cost": 0.00049726,
+            "upstream_inference_completions_cost": 0.00014208
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 97,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "mode": "with_retrieval",
+      "id": "week03_tag",
+      "status": "ok",
+      "record": "with_retrieval-week03_tag.json",
+      "usage": {
+        "embedding": {
+          "prompt_tokens": 13,
+          "total_tokens": 13,
+          "cost": 2.6e-07,
+          "is_byok": false,
+          "cost_details": {
+            "upstream_inference_cost": 2.6e-07,
+            "upstream_inference_prompt_cost": 2.6e-07,
+            "upstream_inference_completions_cost": 0
+          }
+        },
+        "chat": {
+          "prompt_tokens": 1905,
+          "completion_tokens": 107,
+          "total_tokens": 2012,
+          "cost": 0.0006786,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 128,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0006786,
+            "upstream_inference_prompt_cost": 0.0005395,
+            "upstream_inference_completions_cost": 0.0001391
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 75,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "mode": "with_retrieval",
+      "id": "late_day",
+      "status": "ok",
+      "record": "with_retrieval-late_day.json",
+      "usage": {
+        "embedding": {
+          "prompt_tokens": 22,
+          "total_tokens": 22,
+          "cost": 4.4e-07,
+          "is_byok": false,
+          "cost_details": {
+            "upstream_inference_cost": 4.4e-07,
+            "upstream_inference_prompt_cost": 4.4e-07,
+            "upstream_inference_completions_cost": 0
+          }
+        },
+        "chat": {
+          "prompt_tokens": 2097,
+          "completion_tokens": 389,
+          "total_tokens": 2486,
+          "cost": 0.00083271,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 128,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00083271,
+            "upstream_inference_prompt_cost": 0.00045927,
+            "upstream_inference_completions_cost": 0.00037344
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 300,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "mode": "with_retrieval",
+      "id": "favorite_movie",
+      "status": "ok",
+      "record": "with_retrieval-favorite_movie.json",
+      "usage": {
+        "embedding": {
+          "prompt_tokens": 10,
+          "total_tokens": 10,
+          "cost": 2e-07,
+          "is_byok": false,
+          "cost_details": {
+            "upstream_inference_cost": 2e-07,
+            "upstream_inference_prompt_cost": 2e-07,
+            "upstream_inference_completions_cost": 0
+          }
+        },
+        "chat": {
+          "prompt_tokens": 1915,
+          "completion_tokens": 192,
+          "total_tokens": 2107,
+          "cost": 0.00060173,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 128,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00060173,
+            "upstream_inference_prompt_cost": 0.00041741,
+            "upstream_inference_completions_cost": 0.00018432
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 180,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "mode": "without_retrieval",
+      "id": "deadline",
+      "status": "ok",
+      "record": "without_retrieval-deadline.json",
+      "usage": {
+        "chat": {
+          "prompt_tokens": 331,
+          "completion_tokens": 63,
+          "total_tokens": 394,
+          "cost": 0.0001172,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 256,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0001172,
+            "upstream_inference_prompt_cost": 3.53e-05,
+            "upstream_inference_completions_cost": 8.19e-05
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 53,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "mode": "without_retrieval",
+      "id": "portfolio_weight",
+      "status": "ok",
+      "record": "without_retrieval-portfolio_weight.json",
+      "usage": {
+        "chat": {
+          "prompt_tokens": 331,
+          "completion_tokens": 72,
+          "total_tokens": 403,
+          "cost": 0.00012221,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 128,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00012221,
+            "upstream_inference_prompt_cost": 5.309e-05,
+            "upstream_inference_completions_cost": 6.912e-05
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 61,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "mode": "without_retrieval",
+      "id": "week03_tag",
+      "status": "ok",
+      "record": "without_retrieval-week03_tag.json",
+      "usage": {
+        "chat": {
+          "prompt_tokens": 333,
+          "completion_tokens": 63,
+          "total_tokens": 396,
+          "cost": 0.00014478,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 128,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.00014478,
+            "upstream_inference_prompt_cost": 6.918e-05,
+            "upstream_inference_completions_cost": 7.56e-05
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 63,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "mode": "without_retrieval",
+      "id": "late_day",
+      "status": "ok",
+      "record": "without_retrieval-late_day.json",
+      "usage": {
+        "chat": {
+          "prompt_tokens": 342,
+          "completion_tokens": 93,
+          "total_tokens": 435,
+          "cost": 0.0001449,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 128,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 0.0001449,
+            "upstream_inference_prompt_cost": 5.562e-05,
+            "upstream_inference_completions_cost": 8.928e-05
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 83,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "mode": "without_retrieval",
+      "id": "favorite_movie",
+      "status": "ok",
+      "record": "without_retrieval-favorite_movie.json",
+      "usage": {
+        "chat": {
+          "prompt_tokens": 329,
+          "completion_tokens": 48,
+          "total_tokens": 377,
+          "cost": 9.71e-05,
+          "is_byok": false,
+          "prompt_tokens_details": {
+            "cached_tokens": 256,
+            "cache_write_tokens": 0,
+            "audio_tokens": 0,
+            "video_tokens": 0
+          },
+          "cost_details": {
+            "upstream_inference_cost": 9.71e-05,
+            "upstream_inference_prompt_cost": 3.47e-05,
+            "upstream_inference_completions_cost": 6.24e-05
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 38,
+            "image_tokens": 0,
+            "audio_tokens": 0
+          }
+        }
+      }
+    }
+  ],
+  "semantic_review": "Agent source review recorded in review.json; Gabriel review pending."
+}

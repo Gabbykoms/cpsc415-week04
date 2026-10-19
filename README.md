@@ -3,7 +3,7 @@
 A terminal course-reference RAG lab, initialized from [kousen/artifact-chain-template](https://github.com/kousen/artifact-chain-template).
 
 ## Current status
-Intent, specification, and implementation plan have been accepted. The indexer is implemented and verified with both local checks and a live embedding build: 17 files, 78 chunks, and 1,536-dimensional vectors. The API-reported build cost was $0.00051888. The asker is implemented and passed three live proof checks. The five-question evaluation runner is not implemented yet. See [plan.md](plan.md) for the approved sequence and [CHECKS.md](CHECKS.md) for actual progress.
+Intent, specification, and implementation plan have been accepted. The indexer is implemented and verified with both local checks and a live embedding build: 17 files, 78 chunks, and 1,536-dimensional vectors. The API-reported build cost was $0.00051888. The asker is implemented and passed three live proof checks. The evaluation runner is implemented. The first comparison passed 4/5 with retrieval and 1/5 without retrieval; a citation failure remains documented. See [plan.md](plan.md) for the approved sequence and [CHECKS.md](CHECKS.md) for actual progress.
 
 Course documents are read from the neighboring `../ai-integration-course` checkout; they are not copied into this repository. The generated `index.json` will be ignored by Git.
 ## Build the index
@@ -44,13 +44,38 @@ Retrieval prints five passages and cosine scores before the answer. Answers must
 
 See `results/asker-proof-*.json` for full records and corresponding `.txt` files for terminal output. These agent-selected checks do not replace Gabriel's five questions. The baseline behavior shows the effect of withholding excerpts under the same grounding instruction; it does not prove the model cannot answer without RAG under another prompt.
 
-Total API-reported spend through these checks: $0.00201516 of the approved $0.10 ceiling. The CLI does not enforce a provider-side spending cap; `results/budget.json` records this session's spending.
+Total API-reported spend through the index, asker proof, and evaluation: $0.00643485 of the approved $0.10 ceiling. The CLI does not enforce a provider-side spending cap; `results/budget.json` records this session's spending.
+
+## Five-question evaluation
+
+```bash
+python3 eval.py
+# Optional: select a new output directory (must not already exist).
+python3 eval.py --output-dir results/my-evaluation
+```
+
+The runner validates the questions, index, and credentials before making calls. It runs all five questions with retrieval, then without retrieval, and preserves each answer, retrieved text and scores, usage, prompt, and provenance. Per-case API/output errors do not stop later questions. Exit status 0 means capture completed without API/output errors, not that answers passed semantic review; 1 means at least one API/output error; 2 means a setup or file error. Source-based judgments are recorded separately.
+
+**Question provenance:** The agent suggested this set and Gabriel accepted it unchanged. The lab's requirement to write the questions himself remains unmet. Questions and expectations were committed before the live run.
+
+| Question | Expected answer / purpose | With retrieval | Without retrieval |
+|---|---|---|---|
+| When is the Week 4 RAG assignment due? | October 19, 2026, 1:30 PM, Moodle; precise deadline lookup. | FAIL: correct date, invalid extra citation. | FAIL: refusal. |
+| What percentage of the course grade is the individual portfolio? | 25%; extract correct grading-table entry. | PASS | FAIL: refusal. |
+| What Git tag must I submit for the Week 3 assignment? | `week03-submitted`; distinguish assignments. | PASS | FAIL: refusal. |
+| If I have an unused late day and apply it to the Week 4 assignment, when can I submit? | October 20, 2026, 1:30 PM; combine assignment deadline and syllabus late-day rule. | PASS | FAIL: refusal. |
+| What is Professor Kousen's favorite movie? | Exact required refusal; avoid inventing personal information. | PASS | PASS |
+
+**Observed difference:** Retrieval enabled three supported answers plus the correct refusal (4/5); without excerpts, all questions received refusals, so only the unsupported question passed (1/5). Both modes used the same grounding instruction; this is not evidence that the model generally cannot answer without RAG.
+
+The deadline failure cited `syllabus.md#chunk-1`, which was not supplied, despite having the correct deadline passage available. The validator caught the invalid reference. The Week 3 tag answer omitted the extra repository-URL context in the expected answer; it passed because the question asks specifically for the tag. Judgments are agent source reviews pending Gabriel's review.
+
+Full evidence: [evaluation records](results/eval-01/), [review](results/eval-01/review.json), and [terminal capture](results/eval-terminal.txt). Raw per-run review fields preserve their initial pending state; `review.json` contains the later source-based assessment. No failed run was replaced or silently rerun.
 
 ## Outstanding work
 - The $0.10 lab API spending ceiling and credential source are authorized; remaining budget is recorded in `results/budget.json`.
-- Review the completed asker proof, then proceed to the five-question evaluation.
-- Gabriel supplies five evaluation questions; run them with and without retrieval.
+- Review the recorded evaluation and its citation failure.
 - Record the stale-page experiment and explain one code line.
 - Complete documentation and create the submission tag only when ready.
 
-Gabriel accepted the specification unchanged. The lab's requested student spec correction remains unmet.
+Gabriel accepted the specification and agent-suggested questions unchanged. The lab's requested student spec correction and student-authored question requirements remain unmet.

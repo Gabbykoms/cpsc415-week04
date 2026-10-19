@@ -39,5 +39,28 @@
 - Total reported spend including the index: $0.00201516. Remaining approved budget: $0.09798484. No automatic retries performed.
 - These three agent-selected proof checks are not the required five-question evaluation. They demonstrate these observed cases only; factual citation support still requires human review.
 
+## Step 4: Five-question comparison complete
+
+- Gabriel accepted the agent-suggested five questions unchanged. `questions.json` records provenance and expected answers/sources. Student-authorship requirement remains unmet. Questions and runner committed as `a21b50b` before paid evaluation.
+- Local simulated-run checks verified ten captured outcomes, identical questions in both modes, continuation after a case error, refusal to overwrite prior results before API calls, and rejection of invalid question sets.
+- Ran `python3 eval.py --output-dir cpsc415-week04/results/eval-01` via the project-relative executable from the parent workspace. It captured ten results and exited 1 due to one output-validation failure, not a network failure. Full terminal capture: `results/eval-terminal.txt`.
+- Agent source review: **4/5 with retrieval; 1/5 without retrieval**. See `results/eval-01/review.json` for all judgments. Gabriel's independent review is pending; raw run records retain their original pending review marker.
+
+| Case | With retrieval | Without retrieval |
+|---|---|---|
+| Week 4 deadline | FAIL: correct date, but extra citation points to a chunk not supplied. | FAIL: refuses an answerable question. |
+| Portfolio grade weight | PASS: 25%, supported by syllabus chunk 7. | FAIL: refusal. |
+| Week 3 submission tag | PASS: week03-submitted, supported by assignment chunk 1. Omitted repository-URL context, but the question asks for the tag. | FAIL: refusal. |
+| One late day applied to Week 4 | PASS: October 20, 2026, 1:30 PM, supported by both syllabus policy and assignment deadline. | FAIL: refusal. |
+| Favorite movie | PASS: exact refusal. | PASS: exact refusal. |
+
+### Failure evidence
+The with-retrieval deadline answer supplied the correct deadline but additionally cited `syllabus.md#chunk-1`, which was absent from the prompt. Retrieved chunks, in order: `assignments/week04-rag-plan.md#chunk-1`, `syllabus.md#chunk-14`, `weeks/03/README.md#chunk-2`, `assignments/week03-structured-output.md#chunk-1`, and `assignments/week05-vision-tests.md#chunk-1`. Correct deadline evidence was present; the failure was citation generation, not failure to retrieve the deadline. All texts and scores are preserved in `with_retrieval-deadline.json`.
+
+The four baseline failures had no retrieved chunks by design. The grounding instruction required refusal with no supporting excerpts. The comparison demonstrates usefulness gained from excerpts under this prompt, not general model inability without retrieval. No prompt changes or reruns were made to conceal failures.
+
+### Spending
+Evaluation: 10 chat calls and 5 question-embedding calls; API-reported cost $0.00441969. Total lab spend so far: $0.00643485. Remaining approved budget: $0.09356515. Details in `results/budget.json`.
+
 ## Later steps
-Student-authored five-question evaluation, stale-page findings, and Gabriel's code explanation remain pending.
+The stale-page experiment and Gabriel's code explanation remain pending. Do not create the submission tag yet.

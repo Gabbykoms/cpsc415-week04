@@ -1,0 +1,99 @@
+{
+  "with_retrieval_passed": 4,
+  "without_retrieval_passed": 1,
+  "cases_per_mode": 5,
+  "reviews": [
+    {
+      "record": "with_retrieval-deadline.json",
+      "case": "deadline",
+      "retrieval": true,
+      "verdict": "fail",
+      "reason": "FAIL: correct October 19 deadline, but an extra sentence cites syllabus.md#chunk-1, which was not retrieved. Citation validator rejected the answer. Relevant deadline evidence was available in assignments/week04-rag-plan.md#chunk-1.",
+      "reviewer": "Agent source review; Gabriel has not yet independently reviewed these judgments.",
+      "cost_usd": "0.00104000"
+    },
+    {
+      "record": "with_retrieval-favorite_movie.json",
+      "case": "favorite_movie",
+      "retrieval": true,
+      "verdict": "pass",
+      "reason": "PASS: exact required refusal; retrieved passages do not establish a favorite movie.",
+      "reviewer": "Agent source review; Gabriel has not yet independently reviewed these judgments.",
+      "cost_usd": "0.00060193"
+    },
+    {
+      "record": "with_retrieval-late_day.json",
+      "case": "late_day",
+      "retrieval": true,
+      "verdict": "pass",
+      "reason": "PASS: combines the October 19, 1:30 PM deadline with the 24-hour late-day policy and cites both pages; October 20 at 1:30 PM is correct.",
+      "reviewer": "Agent source review; Gabriel has not yet independently reviewed these judgments.",
+      "cost_usd": "0.00083315"
+    },
+    {
+      "record": "with_retrieval-portfolio_weight.json",
+      "case": "portfolio_weight",
+      "retrieval": true,
+      "verdict": "pass",
+      "reason": "PASS: 25% matches the syllabus grading table in retrieved and cited syllabus.md#chunk-7. Additional citations are unnecessary; the claim is supported by chunk 7.",
+      "reviewer": "Agent source review; Gabriel has not yet independently reviewed these judgments.",
+      "cost_usd": "0.00063956"
+    },
+    {
+      "record": "with_retrieval-week03_tag.json",
+      "case": "week03_tag",
+      "retrieval": true,
+      "verdict": "pass",
+      "reason": "PASS for the question asked: identifies week03-submitted and cites the correct assignment chunk. The expected answer also mentions the repository URL; the response omits that extra context, but the question specifically asks which tag to use.",
+      "reviewer": "Agent source review; Gabriel has not yet independently reviewed these judgments.",
+      "cost_usd": "0.00067886"
+    },
+    {
+      "record": "without_retrieval-deadline.json",
+      "case": "deadline",
+      "retrieval": false,
+      "verdict": "fail",
+      "reason": "FAIL on answer usefulness: refused a document-answerable question because no excerpts were supplied. Consistent with the grounding instruction; no API error.",
+      "reviewer": "Agent source review; Gabriel has not yet independently reviewed these judgments.",
+      "cost_usd": "0.0001172"
+    },
+    {
+      "record": "without_retrieval-favorite_movie.json",
+      "case": "favorite_movie",
+      "retrieval": false,
+      "verdict": "pass",
+      "reason": "PASS: exact required refusal for absent information.",
+      "reviewer": "Agent source review; Gabriel has not yet independently reviewed these judgments.",
+      "cost_usd": "0.0000971"
+    },
+    {
+      "record": "without_retrieval-late_day.json",
+      "case": "late_day",
+      "retrieval": false,
+      "verdict": "fail",
+      "reason": "FAIL on answer usefulness: refused a document-answerable question because no excerpts were supplied. Consistent with the grounding instruction; no API error.",
+      "reviewer": "Agent source review; Gabriel has not yet independently reviewed these judgments.",
+      "cost_usd": "0.0001449"
+    },
+    {
+      "record": "without_retrieval-portfolio_weight.json",
+      "case": "portfolio_weight",
+      "retrieval": false,
+      "verdict": "fail",
+      "reason": "FAIL on answer usefulness: refused a document-answerable question because no excerpts were supplied. Consistent with the grounding instruction; no API error.",
+      "reviewer": "Agent source review; Gabriel has not yet independently reviewed these judgments.",
+      "cost_usd": "0.00012221"
+    },
+    {
+      "record": "without_retrieval-week03_tag.json",
+      "case": "week03_tag",
+      "retrieval": false,
+      "verdict": "fail",
+      "reason": "FAIL on answer usefulness: refused a document-answerable question because no excerpts were supplied. Consistent with the grounding instruction; no API error.",
+      "reviewer": "Agent source review; Gabriel has not yet independently reviewed these judgments.",
+      "cost_usd": "0.00014478"
+    }
+  ],
+  "provenance": "Agent-suggested questions accepted unchanged by Gabriel; student-authorship requirement remains unmet.",
+  "comparison": "Same questions, model, grounding prompt, and output cap. Without excerpts the prompt requires refusal; this comparison does not establish general model inability without RAG."
+}

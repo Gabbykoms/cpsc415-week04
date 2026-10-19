@@ -9,11 +9,11 @@ Week 4 terminal course-reference RAG lab. See [intent](intent/ask-the-course.md)
 - `python3 asker.py "question"`: print retrieved passages and a grounded answer.
 - `python3 asker.py --no-retrieval "question"`: run the no-excerpts baseline.
 - Add `--save results/new-run.json` to save a complete record to a new file.
-- Evaluation runner is not implemented yet.
+- `python3 eval.py`: capture five questions in both modes in a new timestamped results directory; semantic grading is separate.
 
 ## Conventions
 - Keep approval and evaluation records honest. Never mark a draft approved without Gabriel's approval.
-- Student writes the five evaluation questions and asks at least two questions about the plan.
+- Gabriel asked three plan questions. Evaluation questions were agent-suggested and accepted unchanged; do not claim they were student-authored.
 
 ## Working rules
 - This is the Week 4 introductory lab. Stages assigned: intent, spec, and plan. No branches or pull requests yet. Commit to main.

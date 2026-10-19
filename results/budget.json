@@ -30,8 +30,15 @@
       "requests": 1,
       "reported_cost_usd": "0.00014237",
       "evidence": "asker-proof-baseline.json"
+    },
+    {
+      "stage": "five-question evaluation, both modes",
+      "model": "minimax/minimax-m3",
+      "requests": 15,
+      "reported_cost_usd": "0.00441969",
+      "evidence": "eval-01/summary.json"
     }
   ],
-  "total_reported_cost_usd": "0.00201516",
-  "remaining_budget_usd": "0.09798484"
+  "total_reported_cost_usd": "0.00643485",
+  "remaining_budget_usd": "0.09356515"
 }
