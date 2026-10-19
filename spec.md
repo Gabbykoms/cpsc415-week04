@@ -1,6 +1,6 @@
 # Spec: Ask the course
 
-**Status:** Accepted unchanged by Gabriel Koomson on October 19, 2026, in conversation after being asked for changes. Indexer implemented and live API verification passed; asker and evaluation remain pending.
+**Status:** Accepted unchanged by Gabriel Koomson on October 19, 2026, in conversation after being asked for changes. Indexer and asker implemented and live proof checks passed; the student-authored five-question evaluation remains pending.
 
 ## Intent
 Implements [approved intent](intent/ask-the-course.md): a general course reference used from the terminal.
@@ -29,7 +29,7 @@ Implements [approved intent](intent/ask-the-course.md): a general course referen
 ### Shared configuration and dependencies
 - Require `OPENROUTER_API_KEY`; never print it. Default `OPENROUTER_BASE_URL=https://openrouter.ai/api/v1`, `EMBEDDING_MODEL=openai/text-embedding-3-small`, and `CHAT_MODEL=minimax/minimax-m3`. Changing the embedding model requires rebuilding the index.
 - Use `/embeddings` and `/chat/completions`. Set a 60-second request timeout and a 2,048-token chat output cap, without automatic retries. Batch index embeddings, at most 32 chunks per request; map vectors using response indices rather than assuming response order.
-- Standard-library modules: `argparse` for terminal arguments, `pathlib` for file access, `json` for index/API/evaluation data, `urllib.request` and `urllib.error` for HTTP, `os` for environment configuration, `math` for vector arithmetic and validation, `hashlib` for stale-index detection, `datetime` for timestamps, `subprocess` for reading the course Git revision, `tempfile` for safe atomic index writes, and `sys` for exit codes and error output. No RAG framework or vector database is needed for this small collection.
+- Standard-library modules: `argparse` for terminal arguments, `pathlib` for file access, `json` for index/API/evaluation data, `urllib.request` and `urllib.error` for HTTP, `os` for environment configuration, `math` for vector arithmetic and validation, `hashlib` for stale-index detection, `datetime` for timestamps, `subprocess` for reading the course Git revision, `tempfile` for safe atomic index writes, `re` for citation-reference validation, and `sys` for exit codes and error output. No RAG framework or vector database is needed for this small collection.
 
 ## Behavior
 1. Index only `syllabus.md`, Markdown files under `assignments/`, and Markdown files under `weeks/01`, `weeks/02`, and `weeks/03`. Do not index weeks/04, slides, secrets, or other paths. Do not follow symlinks outside the allowed corpus. Read original pages in place; do not copy them into the project.

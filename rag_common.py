@@ -139,3 +139,33 @@ def embed_texts(texts, model):
         dimension = len(vector)
         ordered[index] = vector
     return ordered, response.get('usage')
+
+
+def load_index(path, course_dir, embedding_model):
+    """Validate the index against current source files before any API request."""
+    try:
+        with Path(path).open(encoding='utf-8') as stream:
+            index = json.load(stream)
+    except (OSError, ValueError, UnicodeDecodeError) as exc:
+        raise RagError('Cannot read index JSON; run indexer.py to rebuild it.') from exc
+    if not isinstance(index, dict) or index.get('schema_version') != 1:
+        raise RagError('Unsupported index schema; rebuild the index.')
+    if index.get('embedding_model') != embedding_model:
+        raise RagError('Embedding model differs from the index; rebuild with the selected model.')
+    dimension = index.get('dimension')
+    if type(dimension) is not int or dimension <= 0:
+        raise RagError('Invalid index vector dimension; rebuild the index.')
+    if index.get('chunk_size_words') != 250 or index.get('overlap_words') != 50:
+        raise RagError('Unsupported chunk settings; rebuild the index.')
+    sources = discover_sources(course_dir)
+    if index.get('source_hashes') != {s['source']: s['sha256'] for s in sources}:
+        raise RagError('Course files changed, were added, or removed; rebuild the stale index.')
+    expected = make_chunks(sources)
+    chunks = index.get('chunks')
+    if not isinstance(chunks, list) or len(chunks) != len(expected):
+        raise RagError('Invalid index chunk count; rebuild the index.')
+    for chunk, reference in zip(chunks, expected):
+        if not isinstance(chunk, dict) or any(chunk.get(k) != v for k, v in reference.items()):
+            raise RagError('Index chunk does not match source text; rebuild the index.')
+        validate_vector(chunk.get('vector'), dimension)
+    return index

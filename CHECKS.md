@@ -24,8 +24,20 @@
 - Live proof: 17 files, 78 chunks, three embedding requests, 1,536 dimensions per vector, and 25,944 input tokens. API-reported total cost: $0.00051888; remaining approved budget: $0.09948112. See `results/index-build.txt` and `results/budget.json`.
 - Reloaded the actual JSON index and verified all source hashes against current files, all chunk text and offsets against source chunking, unique IDs, and every vector's dimension, finite values, and nonzero norm.
 - The real index remains local and ignored by Git. No asker or evaluation results are claimed.
-- Shared index loading and freshness checks will be implemented with the asker in step 3.
+- Shared index loading and freshness checks were subsequently implemented and checked in step 3.
 - Repository was published at https://github.com/Gabbykoms/cpsc415-week04 in step 1; remote main was verified at cb5adec. Later local commits are not yet pushed.
 
+## Step 3: Asker (local checks and live proof passed)
+
+- Implemented `asker.py` and shared index loading. Checks schema, model, dimensions, source hashes, chunk IDs/text/offsets, and vector validity before embedding calls.
+- Local assertions verified descending top-five ranking, a real index vector retrieving its own chunk first, accepted source citations, rejected invented/missing citations, malformed and tampered index errors, source-hash changes, model mismatch, missing key, and blank question handling.
+- A simulated baseline verified no index load and no question embedding; its prompt contains zero excerpts. A simulated invalid answer retained the raw answer and chat usage in its error record.
+- Live supported question: “What percentage of the course grade is participation and labs?” Answer: 15%, citing `syllabus.md#chunk-7`. Checked the cited retrieved text: it explicitly assigns 15% to Participation and labs. Five chunks printed in descending score order. Cost: $0.00078772 including question embedding.
+- Live unsupported question: “What is the instructor's favorite ice cream flavor?” Exact response: “I can't find that in the course documents.” Five retrieved chunks printed. Cost: $0.00056619 including question embedding.
+- Live baseline: same grade-weight question and grounding instructions, without excerpts or embedding call. Exact required refusal. Cost: $0.00014237.
+- Full raw answers, chunks, scores, model identifiers, prompts, index provenance, and API usage are in `results/asker-proof-*.json`; terminal captures are in matching `.txt` files.
+- Total reported spend including the index: $0.00201516. Remaining approved budget: $0.09798484. No automatic retries performed.
+- These three agent-selected proof checks are not the required five-question evaluation. They demonstrate these observed cases only; factual citation support still requires human review.
+
 ## Later steps
-Asker, evaluation, stale-page findings, and code explanation are pending. No live retrieval or evaluation results are claimed.
+Student-authored five-question evaluation, stale-page findings, and Gabriel's code explanation remain pending.

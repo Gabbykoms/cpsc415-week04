@@ -9,8 +9,29 @@
       "prompt_tokens": 25944,
       "reported_cost_usd": "0.00051888",
       "evidence": "index-build.txt"
+    },
+    {
+      "stage": "asker proof: supported",
+      "model": "minimax/minimax-m3",
+      "requests": 2,
+      "reported_cost_usd": "0.00078772",
+      "evidence": "asker-proof-supported.json"
+    },
+    {
+      "stage": "asker proof: unsupported",
+      "model": "minimax/minimax-m3",
+      "requests": 2,
+      "reported_cost_usd": "0.00056619",
+      "evidence": "asker-proof-unsupported.json"
+    },
+    {
+      "stage": "asker proof: baseline",
+      "model": "minimax/minimax-m3",
+      "requests": 1,
+      "reported_cost_usd": "0.00014237",
+      "evidence": "asker-proof-baseline.json"
     }
   ],
-  "total_reported_cost_usd": "0.00051888",
-  "remaining_budget_usd": "0.09948112"
+  "total_reported_cost_usd": "0.00201516",
+  "remaining_budget_usd": "0.09798484"
 }

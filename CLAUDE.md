@@ -6,7 +6,10 @@ Week 4 terminal course-reference RAG lab. See [intent](intent/ask-the-course.md)
 ## Commands
 - `python3 indexer.py --dry-run`: inspect corpus and estimated input cost without API calls.
 - `python3 indexer.py`: build index; requires OPENROUTER_API_KEY in the environment.
-- Asker and evaluation commands are not implemented yet.
+- `python3 asker.py "question"`: print retrieved passages and a grounded answer.
+- `python3 asker.py --no-retrieval "question"`: run the no-excerpts baseline.
+- Add `--save results/new-run.json` to save a complete record to a new file.
+- Evaluation runner is not implemented yet.
 
 ## Conventions
 - Keep approval and evaluation records honest. Never mark a draft approved without Gabriel's approval.
