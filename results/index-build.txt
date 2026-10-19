@@ -1,0 +1,6 @@
+Corpus: 17 files, 78 chunks (250 words, 50 overlap).
+Embedding input: 113786 UTF-8 bytes; estimated text cost upper bound $0.002276 at the recorded price (not a provider cap).
+Batch 1: 32 vectors; usage: {"prompt_tokens": 10177, "total_tokens": 10177, "cost": 0.00020354, "is_byok": false, "cost_details": {"upstream_inference_cost": 0.00020354, "upstream_inference_prompt_cost": 0.00020354, "upstream_inference_completions_cost": 0}}
+Batch 2: 32 vectors; usage: {"prompt_tokens": 11190, "total_tokens": 11190, "cost": 0.0002238, "is_byok": false, "cost_details": {"upstream_inference_cost": 0.0002238, "upstream_inference_prompt_cost": 0.0002238, "upstream_inference_completions_cost": 0}}
+Batch 3: 14 vectors; usage: {"prompt_tokens": 4577, "total_tokens": 4577, "cost": 9.154e-05, "is_byok": false, "cost_details": {"upstream_inference_cost": 9.154e-05, "upstream_inference_prompt_cost": 9.154e-05, "upstream_inference_completions_cost": 0}}
+Saved 78 chunks with 1536-dimensional vectors to index.json.

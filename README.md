@@ -3,7 +3,7 @@
 A terminal course-reference RAG lab, initialized from [kousen/artifact-chain-template](https://github.com/kousen/artifact-chain-template).
 
 ## Current status
-Intent, specification, and implementation plan have been accepted. The indexer is implemented and locally checked with simulated API responses; a live embedding build is pending credential authorization. The asker and evaluation runner are not implemented yet. See [plan.md](plan.md) for the approved sequence and [CHECKS.md](CHECKS.md) for actual progress.
+Intent, specification, and implementation plan have been accepted. The indexer is implemented and verified with both local checks and a live embedding build: 17 files, 78 chunks, and 1,536-dimensional vectors. The API-reported build cost was $0.00051888. The asker and evaluation runner are not implemented yet. See [plan.md](plan.md) for the approved sequence and [CHECKS.md](CHECKS.md) for actual progress.
 
 Course documents are read from the neighboring `../ai-integration-course` checkout; they are not copied into this repository. The generated `index.json` will be ignored by Git.
 ## Build the index
@@ -21,8 +21,8 @@ Configuration: `OPENROUTER_API_KEY` is required for live calls; `OPENROUTER_BASE
 
 
 ## Outstanding work
-- The $0.10 lab API spending ceiling is approved; authorize the credential source before the live build.
-- Complete live indexer verification, then implement the asker, showing proof after each plan step.
+- The $0.10 lab API spending ceiling and credential source are authorized; remaining budget is recorded in `results/budget.json`.
+- Implement the asker after reviewing the completed indexer proof, then show proof after each remaining step.
 - Gabriel supplies five evaluation questions; run them with and without retrieval.
 - Record the stale-page experiment and explain one code line.
 - Complete documentation and create the submission tag only when ready.

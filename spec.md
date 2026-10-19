@@ -1,6 +1,6 @@
 # Spec: Ask the course
 
-**Status:** Accepted unchanged by Gabriel Koomson on October 19, 2026, in conversation after being asked for changes. Indexer implemented; live API verification pending.
+**Status:** Accepted unchanged by Gabriel Koomson on October 19, 2026, in conversation after being asked for changes. Indexer implemented and live API verification passed; asker and evaluation remain pending.
 
 ## Intent
 Implements [approved intent](intent/ask-the-course.md): a general course reference used from the terminal.

@@ -12,7 +12,7 @@
 - `.gitignore` excludes `index.json` and its temporary variants, alongside existing secret/environment patterns.
 - No paid API calls made. Gabriel subsequently approved a $0.10 total lab spending ceiling.
 
-## Step 2: Indexer (local checks passed; live build pending)
+## Step 2: Indexer (local checks and live build passed)
 
 - `python3 indexer.py --dry-run`: 17 files, 78 chunks, 113,786 UTF-8 bytes after overlap. Conservative text-cost estimate at the recorded embedding price: $0.002276. No API calls.
 - Manual Python assertions verified all chunk lengths are at most 250 words and adjacent chunks within each file share exactly 50 words.
@@ -20,7 +20,10 @@
 - Empty, zero-norm, nonfinite, and boolean-containing vectors are rejected. Reordered embedding response indices are mapped correctly; duplicate indices are rejected.
 - Temporary-file checks with simulated API and atomic-replacement failures preserved an existing index and left no temporary output. Missing corpus and missing credentials fail before embedding calls.
 - A simulated complete build with two-dimensional fixture vectors wrote and reloaded an index containing 17 source hashes, 78 chunks, three batch usage entries, model identifier, chunk settings, build timestamp, and course revision. This checks the build path; fixture vectors are not real embeddings. Temporary output was deleted.
-- Live execution was blocked before the request: automatic approval review rejected extracting a credential from `keys.md` without explicit authorization of that credential source. No paid request ran; no real index exists yet.
+- The initial live attempt was blocked before any request because the credential source was not explicitly authorized. Gabriel then explicitly authorized the OpenRouter key in `keys.md` within the $0.10 budget. The subsequent live build succeeded. The key was passed through the process environment, not printed or committed.
+- Live proof: 17 files, 78 chunks, three embedding requests, 1,536 dimensions per vector, and 25,944 input tokens. API-reported total cost: $0.00051888; remaining approved budget: $0.09948112. See `results/index-build.txt` and `results/budget.json`.
+- Reloaded the actual JSON index and verified all source hashes against current files, all chunk text and offsets against source chunking, unique IDs, and every vector's dimension, finite values, and nonzero norm.
+- The real index remains local and ignored by Git. No asker or evaluation results are claimed.
 - Shared index loading and freshness checks will be implemented with the asker in step 3.
 - Repository was published at https://github.com/Gabbykoms/cpsc415-week04 in step 1; remote main was verified at cb5adec. Later local commits are not yet pushed.
 

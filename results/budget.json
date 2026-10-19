@@ -1,0 +1,16 @@
+{
+  "approved_budget_usd": "0.10",
+  "credential_authorization": "User explicitly authorized existing OpenRouter key in keys.md; never included in artifacts.",
+  "runs": [
+    {
+      "stage": "index build",
+      "model": "openai/text-embedding-3-small",
+      "requests": 3,
+      "prompt_tokens": 25944,
+      "reported_cost_usd": "0.00051888",
+      "evidence": "index-build.txt"
+    }
+  ],
+  "total_reported_cost_usd": "0.00051888",
+  "remaining_budget_usd": "0.09948112"
+}
